@@ -1,0 +1,8 @@
+# Django ignore files
+venv/
+.idea/
+__init__.py
+
+# React ignore files
+node_modules/
+package-lock.json
