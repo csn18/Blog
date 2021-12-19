@@ -19,6 +19,8 @@ INSTALLED_APPS = [
     'Articles.apps.ArticlesConfig',
     'Reviews.apps.ReviewsConfig',
     'News.apps.NewsConfig',
+
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -73,11 +75,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+REST_FRAMEWORK = {
+    'DATETIME_FORMAT': '%d %B %Y %H:%M:%S'
+}
+
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
-
 
 STATIC_URL = 'static/'
 
