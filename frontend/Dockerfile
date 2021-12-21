@@ -6,6 +6,7 @@ COPY package*.json .
 COPY entrypoint.sh .
 
 RUN npm install
+RUN chmod +x ./entrypoint.sh
 
 COPY . .
 
