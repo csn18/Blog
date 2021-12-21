@@ -4,11 +4,11 @@ services:
   frontend:
     container_name: Frontend
     build:
-      context: ./Frontend
+      context: ./frontend
       dockerfile: Dockerfile
     volumes:
-      - ./Frontend:/app/front
-      - /app/Frontend/node_modules
+      - ./frontend/:/app/front
+      - /app/frontend/node_modules
     ports:
       - "3000:3000"
 
