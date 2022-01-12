@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
 
-from .models import Article, ArticleCategory
+from .models import News, NewsCategory
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -10,17 +10,17 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['id', 'username']
 
 
-class CategoryArticleSerializer(serializers.ModelSerializer):
+class CategoryNewsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = ArticleCategory
+        model = NewsCategory
         fields = ['id', 'title']
 
 
-class ArticlesSerializers(serializers.ModelSerializer):
+class NewsSerializers(serializers.ModelSerializer):
     hash_tags = serializers.SlugRelatedField(many=True, read_only=True, slug_field='title')
     author = UserSerializer()
     category = serializers.SlugRelatedField(read_only=True, slug_field='title')
 
     class Meta:
-        model = Article
-        fields = ['title', 'text', 'image', 'publication_date', 'author', 'category', 'hash_tags']
+        model = News
+        fields = ['title', 'text', 'image', 'publication_date', 'category', 'hash_tags']
