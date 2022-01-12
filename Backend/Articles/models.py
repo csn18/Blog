@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.db import models
 
 
-class Category(models.Model):
+class ArticleCategory(models.Model):
     """
     Model for articles category objects
     """
@@ -37,9 +37,9 @@ class Article(models.Model):
     title = models.CharField(max_length=255)
     text = models.TextField(max_length=4096)
     publication_date = models.DateTimeField(auto_now_add=True)
-    image = models.ImageField(upload_to='Media/images/')
+    image = models.ImageField(upload_to='images/articles')
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(ArticleCategory, on_delete=models.CASCADE)
     hash_tags = models.ManyToManyField(HashTags)
 
     def __str__(self):
